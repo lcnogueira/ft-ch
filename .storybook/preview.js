@@ -1,7 +1,5 @@
 import '../.jest/next-image.mock'
-import { ThemeProvider } from 'styled-components'
 import GlobalStyles from '../src/styles/global'
-import theme from 'styles/theme'
 
 export const parameters = {
   backgrounds: {
@@ -21,9 +19,9 @@ export const parameters = {
 
 export const decorators = [
   (Story) => (
-    <ThemeProvider theme={theme}>
-      <GlobalStyles removeBg />
+    <>
+      <GlobalStyles removeBg/>
       <Story />
-    </ThemeProvider>
+    </>
   )
 ]

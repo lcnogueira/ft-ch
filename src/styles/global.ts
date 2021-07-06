@@ -13,6 +13,18 @@ const GlobalStyles: GlobalStyleComponent<
   GlobalStylesProps,
   DefaultTheme
 > = createGlobalStyle`
+    :root {
+    --highlight: #F231A5;
+    --background: #06092B;
+    --white: #eeeeee;
+
+    --container: 100rem;
+
+    --small: 1.5rem;
+    --medium: 3rem;
+    --large: 5rem;
+  }
+
   @font-face {
     font-family: 'Poppins';
     font-style: normal;
@@ -53,7 +65,7 @@ const GlobalStyles: GlobalStyleComponent<
     }
   }
 
-  ${({ theme, removeBg }) => css`
+  ${({ removeBg }) => css`
     html {
       font-size: 62.5%;
     }
@@ -61,15 +73,27 @@ const GlobalStyles: GlobalStyleComponent<
     body,
     #__next {
       height: 100%;
+      color: var(--white);
     }
+
     body {
-      font-family: ${theme.font.family};
-      font-size: ${theme.font.sizes.medium};
+      font-family: "Poppins, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif";
+      font-size: 1.6rem;
 
       ${!removeBg &&
       css`
-        background-color: ${theme.colors.mainBg};
+        background-color: var(--background);
       `}
+
+      p,
+      a {
+        font-size: 2rem;
+        line-height: var(--medium);
+      }
+
+      a {
+        color: var(--highlight);
+      }
     }
   `}
 `
