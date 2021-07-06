@@ -12,8 +12,8 @@ export const getServerSideProps: GetServerSideProps = async () => {
   let boutiques = []
 
   try {
-    const res = await fetch(process.env.API_ENDPOINT as string)
-    boutiques = await res.json()
+    const response = await fetch(process.env.API_ENDPOINT as string)
+    boutiques = await response.json()
   } catch (err) {
     return { redirect: { destination: '/500', permanent: false } }
   }
