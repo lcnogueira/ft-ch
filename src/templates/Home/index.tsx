@@ -1,19 +1,8 @@
-import * as S from './styles'
+import { Boutique } from 'components/Map'
+import dynamic from 'next/dynamic'
+const Map = dynamic(() => import('components/Map'), { ssr: false })
 
-export type Boutique = {
-  _id: string
-  name: string
-  slug: string
-  location: {
-    lon: number
-    lat: number
-  }
-  description: string
-  logo?: {
-    url: string
-  }
-  founder_quote: string
-}
+import * as S from './styles'
 
 export type HomeTemplateProps = {
   boutiques: Boutique[]
@@ -22,15 +11,7 @@ export type HomeTemplateProps = {
 const Home = ({ boutiques }: HomeTemplateProps) => (
   <S.Wrapper>
     <S.Title>Trouva Frontend Challenge</S.Title>
-    <S.Description>
-      A frontend challenge used to get a position at Trouva.
-    </S.Description>
-    {boutiques.map((boutique) => (
-      <div key={boutique._id}>
-        <span>{boutique._id}</span>
-        <span>{boutique.name}</span>
-      </div>
-    ))}
+    <Map boutiques={boutiques} />
   </S.Wrapper>
 )
 
