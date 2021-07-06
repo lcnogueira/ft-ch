@@ -1,6 +1,8 @@
 import { useRouter } from 'next/router'
-import { MapContainer, TileLayer, Marker } from 'react-leaflet'
+import { MapContainer, TileLayer, Marker, MapConsumer } from 'react-leaflet'
+
 import * as S from './styles'
+import { mapView } from './config'
 
 export type BoutiqueProp = {
   _id: string
@@ -42,13 +44,39 @@ const CustomTileLayer = () => {
 const Map = ({ boutiques }: MapProps) => {
   const router = useRouter()
   return (
-    <S.Wrapper>
+    <S.MapWrapper>
       <S.Title>Trouva Challenge</S.Title>
       <MapContainer
-        center={[0, 0]}
-        zoom={3}
+        center={mapView.center}
+        zoom={mapView.zoom}
+        minZoom={2}
         style={{ height: '100%', width: '100%' }}
+        maxBounds={[
+          [-180, 180],
+          [180, -180]
+        ]}
       >
+        <MapConsumer>
+          {(map) => {
+            const width =
+              window.innerWidth ||
+              document.documentElement.clientWidth ||
+              document.body.clientWidth
+
+            if (width < 768) {
+              map.setMinZoom(2)
+            }
+
+            map.addEventListener('dragend', () => {
+              mapView.setView(map.getCenter())
+            })
+            map.addEventListener('zoomend', () => {
+              mapView.setView(map.getCenter(), map.getZoom())
+            })
+
+            return null
+          }}
+        </MapConsumer>
         <CustomTileLayer />
         {boutiques?.map(({ _id, slug, name, location }) => {
           const { lat, lon } = location
@@ -67,7 +95,7 @@ const Map = ({ boutiques }: MapProps) => {
           )
         })}
       </MapContainer>
-    </S.Wrapper>
+    </S.MapWrapper>
   )
 }
 

@@ -30,7 +30,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   if (!boutique) return { notFound: true }
 
   return {
-    revalidate: 60,
+    revalidate: 60 * 60, //once per hour
     props: {
       boutique
     }

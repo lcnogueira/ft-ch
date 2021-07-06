@@ -1,8 +1,12 @@
 import styled from 'styled-components'
 
-export const Wrapper = styled.main`
+export const MapWrapper = styled.div`
   width: 100%;
   height: 100%;
+
+  .leaflet-container {
+    background-color: #75cff0;
+  }
 `
 
 export const Title = styled.h1`
@@ -11,5 +15,5 @@ export const Title = styled.h1`
   z-index: 1100;
   top: var(--medium);
   right: var(--medium);
-  color: var(--black);
+  color: var(--white);
 `
