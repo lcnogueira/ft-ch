@@ -7,11 +7,11 @@ export const parameters = {
     values: [
       {
         name: 'trouva-light',
-        value: theme.colors.white
+        value: '#eeeeee',
       },
       {
         name: 'trouva-dark',
-        value: theme.colors.mainBg
+        value: '#030517'
       }
     ]
   }

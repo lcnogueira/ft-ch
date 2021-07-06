@@ -4,7 +4,21 @@
 
 ## Getting Started
 
-First, run the development server:
+Follow the steps below in order to run your project locally:
+
+1. Install the dependencies:
+
+```bash
+npm install
+# or
+yarn install
+```
+
+2. Copy the `.env-sample` file to `.env.local` and update the values.
+
+**P.S.: if you don't have a `NEXT_PUBLIC_MAPBOX_API_KEY`, a leaflet default map will be rendered (rather than a Mapbox one)**
+
+3. Run the project:
 
 ```bash
 npm run dev

@@ -1,15 +1,22 @@
-import { GetServerSideProps } from 'next'
-import Home, { HomeTemplateProps } from 'templates/Home'
+import dynamic from 'next/dynamic'
+const Map = dynamic(() => import('components/Map'), { ssr: false })
 
-export default function Index(props: HomeTemplateProps) {
-  return <Home {...props} />
+import { MapProps } from 'components/Map'
+import { GetServerSideProps } from 'next'
+
+export default function Index(props: MapProps) {
+  return <Map {...props} />
 }
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  const res = await fetch(
-    `https://4149o8lffa.execute-api.eu-west-1.amazonaws.com/challenge/boutiques`
-  )
-  const boutiques = await res.json()
+  let boutiques = []
+
+  try {
+    const response = await fetch(process.env.API_ENDPOINT as string)
+    boutiques = await response.json()
+  } catch (err) {
+    return { redirect: { destination: '/500', permanent: false } }
+  }
 
   return {
     props: {

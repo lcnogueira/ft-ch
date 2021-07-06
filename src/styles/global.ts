@@ -17,6 +17,7 @@ const GlobalStyles: GlobalStyleComponent<
     --highlight: #F231A5;
     --background: #06092B;
     --white: #eeeeee;
+    --black: #030517;
 
     --container: 100rem;
 
