@@ -4,7 +4,19 @@
 
 ## Getting Started
 
-First, run the development server:
+Follow the steps below in order to run your project locally:
+
+1. Install the dependencies:
+
+```bash
+npm install
+# or
+yarn install
+```
+
+2. Copy the `.env-sample` file to `.env.local`
+
+3. Run the project:
 
 ```bash
 npm run dev

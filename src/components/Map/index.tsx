@@ -22,6 +22,7 @@ export type MapProps = {
 
 const Map = ({ boutiques }: MapProps) => (
   <S.Wrapper>
+    <S.Title>Trouva Challenge</S.Title>
     <MapContainer
       center={[0, 0]}
       zoom={3}
@@ -34,7 +35,12 @@ const Map = ({ boutiques }: MapProps) => (
       {boutiques?.map(({ _id, name, location }) => {
         const { lat, lon } = location
         return (
-          <Marker key={`place-${_id}`} position={[lat, lon]} title={name} />
+          <Marker
+            key={`place-${_id}`}
+            position={[lat, lon]}
+            title={name}
+            riseOnHover
+          />
         )
       })}
     </MapContainer>

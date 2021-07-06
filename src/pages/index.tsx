@@ -9,10 +9,14 @@ export default function Index(props: MapProps) {
 }
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  const res = await fetch(
-    `https://4149o8lffa.execute-api.eu-west-1.amazonaws.com/challenge/boutiques`
-  )
-  const boutiques = await res.json()
+  let boutiques = []
+
+  try {
+    const res = await fetch(process.env.API_ENDPOINT as string)
+    boutiques = await res.json()
+  } catch (err) {
+    return { redirect: { destination: '/500', permanent: false } }
+  }
 
   return {
     props: {

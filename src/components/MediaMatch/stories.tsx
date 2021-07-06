@@ -3,7 +3,12 @@ import MediaMatch from '.'
 
 export default {
   title: 'MediaMatch',
-  component: MediaMatch
+  component: MediaMatch,
+  parameters: {
+    backgrounds: {
+      default: 'trouva-dark'
+    }
+  }
 } as Meta
 
 export const Desktop: Story = () => (
