@@ -14,7 +14,7 @@ npm install
 yarn install
 ```
 
-2. Copy the `.env-sample` file to `.env.local`
+2. Copy the `.env-sample` file to `.env.local` and update the values.
 
 3. Run the project:
 
