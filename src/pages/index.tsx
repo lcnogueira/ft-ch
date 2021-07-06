@@ -1,8 +1,11 @@
-import { GetServerSideProps } from 'next'
-import Home, { HomeTemplateProps } from 'templates/Home'
+import dynamic from 'next/dynamic'
+const Map = dynamic(() => import('components/Map'), { ssr: false })
 
-export default function Index(props: HomeTemplateProps) {
-  return <Home {...props} />
+import { MapProps } from 'components/Map'
+import { GetServerSideProps } from 'next'
+
+export default function Index(props: MapProps) {
+  return <Map {...props} />
 }
 
 export const getServerSideProps: GetServerSideProps = async () => {

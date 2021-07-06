@@ -1,5 +1,5 @@
 import { MapContainer, TileLayer, Marker } from 'react-leaflet'
-// import * as S from './styles'
+import * as S from './styles'
 
 export type Boutique = {
   _id: string
@@ -21,20 +21,24 @@ export type MapProps = {
 }
 
 const Map = ({ boutiques }: MapProps) => (
-  <MapContainer
-    center={[0, 0]}
-    zoom={3}
-    style={{ height: '100%', width: '100%' }}
-  >
-    <TileLayer
-      attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-      url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-    />
-    {boutiques?.map(({ _id, name, location }) => {
-      const { lat, lon } = location
-      return <Marker key={`place-${_id}`} position={[lat, lon]} title={name} />
-    })}
-  </MapContainer>
+  <S.Wrapper>
+    <MapContainer
+      center={[0, 0]}
+      zoom={3}
+      style={{ height: '100%', width: '100%' }}
+    >
+      <TileLayer
+        attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+      />
+      {boutiques?.map(({ _id, name, location }) => {
+        const { lat, lon } = location
+        return (
+          <Marker key={`place-${_id}`} position={[lat, lon]} title={name} />
+        )
+      })}
+    </MapContainer>
+  </S.Wrapper>
 )
 
 export default Map
