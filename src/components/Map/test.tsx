@@ -34,7 +34,7 @@ describe('<Map />', () => {
     ).toBeInTheDocument()
   })
 
-  it('should render with the marker in correct place', () => {
+  it('should render with the marker', () => {
     render(<Map userLocation={userLocation} boutiques={[mockedBoutique]} />)
 
     expect(screen.getByTitle(/store thirty3/i)).toBeInTheDocument()

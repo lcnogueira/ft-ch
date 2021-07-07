@@ -17,14 +17,16 @@ const handler = async (
       const latitude = query.latitude as string
       const longitude = query.longitude as string
 
+      if (!latitude || !longitude) {
+        return response
+          .status(400)
+          .json({ message: 'You should provide both latitude and longitude' })
+      }
+
       const boutiquesResponse = await fetch(process.env.API_ENDPOINT as string)
       const boutiques: Boutique[] = await boutiquesResponse.json()
 
-      if (!latitude || !longitude) {
-        return response.status(200).json(boutiques)
-      }
-
-      //Ideally we would calculate the distance and sort the items on the backend api route or by using geojson (if using mongodb)
+      //Ideally we would calculate the distance and sort the items on the trouva service that provides the boutiques
       const boutiquesWithDistance = boutiques.map((boutique) => ({
         ...boutique,
         distance: getDistanceInKilometers({

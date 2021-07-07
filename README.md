@@ -41,5 +41,5 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## The Challenge
 
-You can take a look at the challenge description [here](https://github.com/Trouva/product-technical-tests/blob/master/challenges/Engineer.front_end.lvl1.md)
+You can take a look at the challenge description [here](https://github.com/Trouva/product-technical-tests/blob/master/challenges/Engineer.front_end.lvl1.md).
 
