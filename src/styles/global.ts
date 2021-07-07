@@ -15,7 +15,7 @@ const GlobalStyles: GlobalStyleComponent<
 > = createGlobalStyle`
     :root {
     --highlight: #F231A5;
-    --background: #06092B;
+    --background: #75cff0;
     --white: #eeeeee;
     --black: #030517;
 

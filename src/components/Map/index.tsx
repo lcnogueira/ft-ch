@@ -1,31 +1,9 @@
 import { useRouter } from 'next/router'
 import { MapContainer, TileLayer, Marker, MapConsumer } from 'react-leaflet'
+import { MAPBOX_API_KEY, MAPBOX_STYLEID, MAPBOX_USERID } from 'config'
 
 import * as S from './styles'
 import { mapView } from './config'
-
-export type BoutiqueProp = {
-  _id: string
-  name: string
-  slug: string
-  location: {
-    lon: number
-    lat: number
-  }
-  description: string
-  logo?: {
-    url: string
-  }
-  founder_quote: string
-}
-
-export type MapProps = {
-  boutiques?: BoutiqueProp[]
-}
-
-const MAPBOX_API_KEY = process.env.NEXT_PUBLIC_MAPBOX_API_KEY
-const MAPBOX_USERID = process.env.NEXT_PUBLIC_MAPBOX_USERID
-const MAPBOX_STYLEID = process.env.NEXT_PUBLIC_MAPBOX_STYLEID
 
 const CustomTileLayer = () => {
   return MAPBOX_API_KEY ? (
@@ -41,13 +19,22 @@ const CustomTileLayer = () => {
   )
 }
 
-const Map = ({ boutiques }: MapProps) => {
+export type MapProps = {
+  boutiques?: Boutique[]
+  userLocation: GeolocationCoordinates
+}
+
+const Map = ({ boutiques, userLocation }: MapProps) => {
   const router = useRouter()
+
   return (
     <S.MapWrapper>
       <S.Title>Trouva Challenge</S.Title>
       <MapContainer
-        center={mapView.center}
+        center={{
+          lat: userLocation.latitude || 0,
+          lng: userLocation.longitude || 0
+        }}
         zoom={mapView.zoom}
         minZoom={2}
         style={{ height: '100%', width: '100%' }}
@@ -82,7 +69,7 @@ const Map = ({ boutiques }: MapProps) => {
           const { lat, lon } = location
           return (
             <Marker
-              key={`place-${_id}`}
+              key={`boutique-${_id}`}
               position={[lat, lon]}
               title={name}
               riseOnHover

@@ -2,6 +2,16 @@ import { render, screen } from '@testing-library/react'
 
 import Map from '.'
 
+const userLocation: GeolocationCoordinates = {
+  latitude: -5.2129857,
+  longitude: -37.3275242,
+  altitude: null,
+  accuracy: 20,
+  altitudeAccuracy: null,
+  heading: null,
+  speed: null
+}
+
 const mockedBoutique = {
   _id: '58f8993879b34604006c2f1b',
   name: 'Store Thirty3',
@@ -17,15 +27,15 @@ const mockedBoutique = {
 
 describe('<Map />', () => {
   it('should render without any boutique', () => {
-    render(<Map />)
+    render(<Map userLocation={userLocation} />)
 
     expect(
       screen.getByRole('link', { name: /a js library for interactive maps/i })
     ).toBeInTheDocument()
   })
 
-  it('should render with the marker in correct place', () => {
-    render(<Map boutiques={[mockedBoutique]} />)
+  it('should render with the marker', () => {
+    render(<Map userLocation={userLocation} boutiques={[mockedBoutique]} />)
 
     expect(screen.getByTitle(/store thirty3/i)).toBeInTheDocument()
   })

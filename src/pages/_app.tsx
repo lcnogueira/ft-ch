@@ -1,3 +1,5 @@
+import { BoutiquesProvider } from 'contexts/BoutiquesContext'
+import { GeolocationProvider } from 'contexts/GeolocationProvider'
 import { AppProps } from 'next/app'
 import Head from 'next/head'
 import NextNprogress from 'nextjs-progressbar'
@@ -34,7 +36,11 @@ function App({ Component, pageProps }: AppProps) {
         stopDelayMs={200}
         height={3}
       />
-      <Component {...pageProps} />
+      <GeolocationProvider>
+        <BoutiquesProvider>
+          <Component {...pageProps} />
+        </BoutiquesProvider>
+      </GeolocationProvider>
     </>
   )
 }

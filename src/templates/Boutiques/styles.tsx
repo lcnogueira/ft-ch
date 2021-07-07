@@ -3,6 +3,8 @@ import NextImage from 'next/image'
 
 export const Wrapper = styled.div`
   padding: var(--large) var(--medium);
+  background-color: #06092b;
+  height: 100%;
 `
 
 export const Container = styled.section`
