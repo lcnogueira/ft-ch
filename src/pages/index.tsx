@@ -5,6 +5,5 @@ import { useBoutiques } from 'hooks/useBoutiques'
 
 export default function Index() {
   const { userLocation, boutiques } = useBoutiques()
-
   return <Map userLocation={userLocation} boutiques={boutiques} />
 }

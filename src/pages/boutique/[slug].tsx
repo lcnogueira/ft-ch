@@ -3,6 +3,9 @@ import { useRouter } from 'next/router'
 import BoutiquesTemplate, { BoutiquesTemplateProps } from 'templates/Boutiques'
 import { API_ENDPOINT } from 'config'
 
+const HOUR_IN_SECONDS = 60 * 60
+const NUMBER_OF_PAGES = 20
+
 export default function Boutique({ boutique }: BoutiquesTemplateProps) {
   const router = useRouter()
 
@@ -15,7 +18,7 @@ export async function getStaticPaths() {
   try {
     const response = await fetch(API_ENDPOINT as string)
     const boutiques: Boutique[] = await response.json()
-    const paths = boutiques.slice(1, 20).map(({ slug }) => ({
+    const paths = boutiques.slice(0, NUMBER_OF_PAGES).map(({ slug }) => ({
       params: { slug }
     }))
     return { paths, fallback: 'blocking' }
@@ -34,7 +37,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   if (!boutique) return { notFound: true }
 
   return {
-    revalidate: 60 * 60,
+    revalidate: HOUR_IN_SECONDS,
     props: {
       boutique
     }
