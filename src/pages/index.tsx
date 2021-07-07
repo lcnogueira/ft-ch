@@ -1,26 +1,10 @@
 import dynamic from 'next/dynamic'
 const Map = dynamic(() => import('components/Map'), { ssr: false })
 
-import { MapProps } from 'components/Map'
-import { GetServerSideProps } from 'next'
+import { useBoutiques } from 'hooks/useBoutiques'
 
-export default function Index(props: MapProps) {
-  return <Map {...props} />
-}
+export default function Index() {
+  const { userLocation, boutiques } = useBoutiques()
 
-export const getServerSideProps: GetServerSideProps = async () => {
-  let boutiques = []
-
-  try {
-    const response = await fetch(process.env.API_ENDPOINT as string)
-    boutiques = await response.json()
-  } catch (err) {
-    return { redirect: { destination: '/500', permanent: false } }
-  }
-
-  return {
-    props: {
-      boutiques
-    }
-  }
+  return <Map userLocation={userLocation} boutiques={boutiques} />
 }

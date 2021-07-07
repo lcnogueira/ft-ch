@@ -3,10 +3,9 @@ import NextLink from 'next/link'
 
 import * as S from './styles'
 import { useRouter } from 'next/router'
-import { BoutiqueProp } from 'components/Map'
 
 export type BoutiquesTemplateProps = {
-  boutique: BoutiqueProp
+  boutique: Boutique
 }
 
 export default function BoutiquesTemplate({
