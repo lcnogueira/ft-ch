@@ -1,6 +1,6 @@
-# Trouva Frontend Challenge
+# Closest Boutiques
 
-<!-- ![ci](https://github.com/lcnogueira/nextjs-boilerplate/workflows/ci/badge.svg) -->
+![ci](https://github.com/lcnogueira/nextjs-boilerplate/workflows/ci/badge.svg)
 
 ## Getting Started
 
