@@ -21,10 +21,6 @@ updates:
     - 14.14.39
     - 14.14.41
     - 15.0.0
-  - dependency-name: next-pwa
-    versions:
-    - 5.0.5
-    - 5.2.14
   - dependency-name: "@storybook/react"
     versions:
     - 6.1.16
