@@ -15,5 +15,5 @@ export const Title = styled.h1`
   z-index: 1100;
   top: var(--medium);
   right: var(--medium);
-  color: var(--white);
+  color: var(--highlight);
 `
