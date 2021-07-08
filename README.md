@@ -26,6 +26,7 @@ You can run this project on your local environment by following the simple steps
     ```
 
 2. **Copy the `.env-sample` file to `.env.local` and update the values.**
+
   P.S.: if you don't have a `NEXT_PUBLIC_MAPBOX_API_KEY`, a leaflet default map will be rendered (rather than a Mapbox one)
 
 3. **Run the project in `develop` mode.**
@@ -34,6 +35,7 @@ You can run this project on your local environment by following the simple steps
     ```
 
 4. **Visit the website!**
+
 The site is now running on `http://localhost:3000`.
 
 ### Additional commands
@@ -54,7 +56,7 @@ You can use one of the following scripts to run the tests:
 - I decided to use the [leaflet map](https://github.com/Leaflet) (open source) instead of the google maps one to avoid having to create an api key (and adding a credit card).
 
 ## Additional Features
-- [X] Added a simple boutique details page that is displayed when the user clicks on a boutique marker. Those pages are statically rendered with an incremental approach (I can explain why I think this is a good idea on the technical interview)
+- [X] Added a simple boutique details page that is displayed when the user clicks on a boutique marker. Those pages are statically rendered with an incremental approach (I can explain why I think this is a good idea on the technical interview).
 - [x] Added some simple unit tests.
 
 ## Future Improvements
