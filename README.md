@@ -56,15 +56,15 @@ You can use one of the following scripts to run the tests:
 - I decided to use the [leaflet map](https://github.com/Leaflet) (open source) instead of the google maps one to avoid having to create an api key (and adding a credit card).
 
 ## Additional Features
-- [X] Added a simple boutique details page that is displayed when the user clicks on a boutique marker. Those pages are statically rendered with an incremental approach (I can explain why I think this is a good idea on the technical interview).
+- [X] Added a simple boutique details page that is displayed when the user clicks on a boutique marker. Those pages are statically rendered with an incremental approach, which is a great resource to have when we have a lot of pages and don't want to generate all of them at build time, but also don't want to generate the page every time the user requests it (SSR).
 - [x] Added some simple unit tests.
 
 ## Future Improvements
+- [ ] Creating additional tests.
 - [ ] Tracking the location of the user and fetching the boutiques list every time his location changes above a threshold value (e.g. 1 km).
 - [ ] Creating a fallback option in case the user does not provide latitude and longitude values. Right now, the app only displays the boutiques if the user provides those values.
 - [ ] Displaying the user position marker.
 - [ ] Creating the components stories (we have storybook set up already).
-- [ ] Creating additional tests.
 
 ### NextJs Boilerplate
 
