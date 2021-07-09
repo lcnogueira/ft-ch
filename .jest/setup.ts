@@ -5,7 +5,7 @@ import dotenv from 'dotenv'
 import jestMock from 'jest-fetch-mock'
 
 dotenv.config({
-  path: '.env.test.local'
+  path: '.env.development'
 })
 
 jestMock.enableMocks()
