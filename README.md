@@ -51,6 +51,8 @@ You can find additionals commands inside the [package.json](package.json) file:
 You can use one of the following scripts to run the tests:
 - `test`: runs the tests for all components and pages.
 - `test:watch`: runs tests in watch mode.
+
+**We use the .env.development file for loading a fake env var so that we can run our tests on the github CI.**
 ## Additional Comments
 - I've filtered and sorted the data on my own API route since the provided challenge route API from Trouva doesn't seem to provide an option for that.
 - I decided to use the [leaflet map](https://github.com/Leaflet) (open source) instead of the google maps one to avoid having to create an api key (and adding a credit card).
