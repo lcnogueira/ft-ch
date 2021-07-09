@@ -1,5 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 import { getDistanceInKilometers } from 'utils/harvesine'
+import { API_ENDPOINT } from 'config'
 
 type ErrorMessage = {
   message: string
@@ -23,10 +24,10 @@ const handler = async (
           .json({ message: 'You should provide both latitude and longitude' })
       }
 
-      const boutiquesResponse = await fetch(process.env.API_ENDPOINT as string)
+      const boutiquesResponse = await fetch(API_ENDPOINT)
       const boutiques: Boutique[] = await boutiquesResponse.json()
 
-      //Ideally we would calculate the distance and sort the items on the trouva service that provides the boutiques
+      // Ideally we would calculate the distance and sort the items on the trouva service that provides the boutiques
       const boutiquesWithDistance = boutiques.map((boutique) => ({
         ...boutique,
         distance: getDistanceInKilometers({
