@@ -8,7 +8,11 @@ export const Wrapper = styled.div`
   position: relative;
 `
 
-export const Spinner = styled.div`
+type SpinnerProps = {
+  show: boolean
+}
+
+export const Spinner = styled.div<SpinnerProps>`
   z-index: 1100;
   position: absolute;
 
@@ -24,10 +28,21 @@ export const Spinner = styled.div`
       transform: rotate(360deg);
     }
   }
+
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+
+  ${({ show }) =>
+    !!show &&
+    css`
+      opacity: 1;
+      visibility: visible;
+    `}
 `
 
 type ErrorMessageProps = {
-  error: string
+  show: boolean
 }
 
 export const ErrorMessage = styled.span<ErrorMessageProps>`
@@ -45,8 +60,8 @@ export const ErrorMessage = styled.span<ErrorMessageProps>`
   transition: transform 0.2s ease-in, opacity 0.3s ease-in-out;
   transform: translateY(-2rem);
 
-  ${({ error }) =>
-    !!error &&
+  ${({ show }) =>
+    !!show &&
     css`
       opacity: 1;
       transform: translateY(0);

@@ -9,8 +9,8 @@ export default function HomeTemplate() {
 
   return (
     <S.Wrapper>
-      {<S.ErrorMessage error={error}>{error}</S.ErrorMessage>}
-      {!error && loading && <S.Spinner />}
+      <S.ErrorMessage show={!!error}>{error}</S.ErrorMessage>
+      <S.Spinner show={!error && loading} />
       <Map userLocation={userLocation} boutiques={boutiques} />
     </S.Wrapper>
   )

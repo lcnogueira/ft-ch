@@ -34,9 +34,6 @@ export function GeolocationProvider({ children }: GeolocationProviderProps) {
       (error) => {
         setError(error.message)
         setLoading(false)
-      },
-      {
-        timeout: 3000
       }
     )
   }, [])
