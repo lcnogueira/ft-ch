@@ -2,7 +2,6 @@ import { CloseOutline } from '@styled-icons/evaicons-outline/CloseOutline'
 import NextLink from 'next/link'
 
 import * as S from './styles'
-import { useRouter } from 'next/router'
 
 export type BoutiquesTemplateProps = {
   boutique: Boutique
@@ -11,10 +10,6 @@ export type BoutiquesTemplateProps = {
 export default function BoutiquesTemplate({
   boutique
 }: BoutiquesTemplateProps) {
-  const router = useRouter()
-
-  if (router.isFallback) return null
-
   return (
     <>
       <S.LinkWrapper>
