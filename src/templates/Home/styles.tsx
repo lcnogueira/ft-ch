@@ -41,7 +41,6 @@ export const ErrorMessage = styled.span<ErrorMessageProps>`
 
   opacity: 0;
   pointer-events: none;
-  transform: translateY(-2rem);
   visibility: hidden;
   transition: transform 0.2s ease-in, opacity 0.3s ease-in-out;
   transform: translateY(-2rem);
