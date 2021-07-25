@@ -34,7 +34,7 @@ export const Spinner = styled.div<SpinnerProps>`
   visibility: hidden;
 
   ${({ show }) =>
-    !!show &&
+    show &&
     css`
       opacity: 1;
       visibility: visible;
@@ -61,7 +61,7 @@ export const ErrorMessage = styled.span<ErrorMessageProps>`
   transform: translateY(-2rem);
 
   ${({ show }) =>
-    !!show &&
+    show &&
     css`
       opacity: 1;
       transform: translateY(0);
