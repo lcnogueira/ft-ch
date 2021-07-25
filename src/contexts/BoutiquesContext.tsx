@@ -16,15 +16,16 @@ type BoutiquesProviderProps = {
 }
 
 export function BoutiquesProvider({ children }: BoutiquesProviderProps) {
-  const { location } = useGeolocation()
+  const { location, error: locationError } = useGeolocation()
 
   const [boutiques, setBoutiques] = useState<Boutique[]>([])
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
 
   const getBoutiques = useCallback(
     async (latitude: number, longitude: number) => {
       try {
+        setLoading(true)
         const response = await fetch(
           `/api/boutiques?latitude=${latitude}&longitude=${longitude}`
         )
@@ -47,11 +48,16 @@ export function BoutiquesProvider({ children }: BoutiquesProviderProps) {
   )
 
   useEffect(() => {
+    if (locationError) {
+      setError(locationError)
+      return
+    }
+
     const { latitude, longitude } = location
     if (!!latitude && !!longitude) {
       getBoutiques(latitude, longitude)
     }
-  }, [location, getBoutiques])
+  }, [location, getBoutiques, locationError])
 
   return (
     <BoutiquesContext.Provider
