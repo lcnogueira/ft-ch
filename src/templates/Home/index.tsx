@@ -5,11 +5,12 @@ import { useBoutiques } from 'hooks/useBoutiques'
 import * as S from './styles'
 
 export default function HomeTemplate() {
-  const { userLocation, boutiques, loading } = useBoutiques()
+  const { userLocation, boutiques, loading, error } = useBoutiques()
 
   return (
     <S.Wrapper>
-      {loading && <S.Spinner />}
+      <S.ErrorMessage show={!!error}>{error}</S.ErrorMessage>
+      <S.Spinner show={!error && loading} />
       <Map userLocation={userLocation} boutiques={boutiques} />
     </S.Wrapper>
   )

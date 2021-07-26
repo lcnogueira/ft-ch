@@ -75,7 +75,7 @@ const Map = ({ boutiques, userLocation }: MapProps) => {
               riseOnHover
               eventHandlers={{
                 click: () => {
-                  router.push(`/boutique/${slug}`)
+                  router.push(`boutique/${slug}`)
                 }
               }}
             />
