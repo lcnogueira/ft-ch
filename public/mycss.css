@@ -1,5 +1,3 @@
-.nftHero {
-  button.button {
-    background: blue;
-  }
-}
+.nftHero button.button {
+   background: blue;
+ }
