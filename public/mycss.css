@@ -1,3 +1,9 @@
-button.button{
-  background-color: blue;
+.nftHero {
+  button.button:first-child {
+    background: blue;
+  }
+
+  button.button:nth-child(2) {
+    background: red;
+  }
 }
