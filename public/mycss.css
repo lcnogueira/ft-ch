@@ -1,9 +1,5 @@
 .nftHero {
-  button.button:first-child {
+  button.button {
     background: blue;
-  }
-
-  button.button:nth-child(2) {
-    background: red;
   }
 }
