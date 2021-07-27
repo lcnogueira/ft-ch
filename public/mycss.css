@@ -1,7 +1,35 @@
-.nft-edition .nft-hero button:first-child {
-   background: blue;
- }
+/* home page (path: /)*/
+.home {
+  background-color: #fafafa;
+}
 
-.nft-edition .nft-hero button:nth-child(2) {
-   background: red;
- }
+.featured-collection {
+  background-color: #fafafa;
+}
+
+.featured-collection__title,
+.featured-collection__description,
+.featured-collection .filter-by {
+  color: #040707;
+}
+
+.featured-collection .featured-collection__filter-options {
+  border-bottom: 1px solid #040707;
+}
+
+.featured-collection .grid-section {
+  background-color: #fafafa;
+}
+
+.featured-collection .nft-card {
+  background-color: white;
+}
+
+.featured-collection .nft-card {
+  background-color: white;
+}
+
+.featured-collection .nft-card .nft-card__title,
+.featured-collection .nft-card .nft-card__description {
+  color: #040707;
+}
