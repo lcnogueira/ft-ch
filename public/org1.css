@@ -36,10 +36,33 @@
   color: #040707;
 }
 
+/* header inside home page (if you wanna target all of the headers, just remove the .home class */
+.home .header__desktop-link,
+.home .header__mobile-link,
+.home .header__icon-wrapper svg,
+.home .user-profile__user-icon svg {
+  color: yellow;
+}
+
+.home .header,
+.home .header__icon-wrapper,
+.home .user-profile__user-icon {
+  border-color: yellow;
+}
+
+.home .search-box__icon,
+.home .search-box__input,
+.home .search-box__input::placeholder {
+  color: yellow;
+}
+
+.home .search-box {
+  border-color: yellow;
+}
 
 /* marketplace page (/marketplace) */
 .marketplace{
-  background-color: #E41C38;
+  background-color: #F231A5;
 }
 
 .marketplace .marketplace__content{
