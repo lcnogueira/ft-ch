@@ -118,3 +118,27 @@
 .collection .grid-section {
   background-color: #040707;
 }
+
+/* Header inside collection details page (same as the home page, but inside a .collection class rather than .home) */
+.collection .header .header__desktop-link,
+.collection .header .header__mobile-link,
+.collection .header .header__icon-wrapper svg,
+.collection .header .user-profile__user-icon svg {
+  color: #fafafa;
+}
+
+.collection .header,
+.collection .header .header__icon-wrapper,
+.collection .header .user-profile__user-icon {
+  border-color: #fafafa;
+}
+
+.collection .header .search-box__icon,
+.collection .header .search-box__input,
+.collection .header .search-box__input::placeholder {
+  color: #fafafa;
+}
+
+.collection .header .search-box {
+  border-color: #fafafa;
+}
