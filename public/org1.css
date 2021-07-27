@@ -3,7 +3,7 @@
   background-color: #fafafa;
 }
 
-.home__hero .button{
+.home__hero.footer .button{
   background-color: #F231A5;
   border: 1px solid white;
 }
