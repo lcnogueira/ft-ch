@@ -3,12 +3,46 @@
   background-color: #fafafa;
 }
 
+/* header inside home page (if you wanna target all of the headers, just remove the .home class */
+.home .header .header__desktop-link,
+.home .header .header__mobile-link,
+.home .header .header__icon-wrapper svg,
+.home .header .user-profile__user-icon svg {
+  color: yellow;
+}
+
+.home .header,
+.home .header .header__icon-wrapper,
+.home .header .user-profile__user-icon {
+  border-color: yellow;
+}
+
+.home .header .search-box__icon,
+.home .header .search-box__input,
+.home .header .search-box__input::placeholder {
+  color: yellow;
+}
+
+.home .header .search-box {
+  border-color: yellow;
+}
+/* header end */
+
+.home__hero.overlay {
+  background: linear-gradient(
+    122.62deg,
+    rgba(242, 49, 165, 0.8),
+    rgba(0, 0, 0, 0.65) 88.97%
+  );
+}
+
 .home__hero.footer .button{
   background-color: #F231A5;
   border: 1px solid white;
   border-radius: 30px;
 }
 
+/* featured collection section inside home page */
 .featured-collection {
   background-color: #fafafa;
 }
@@ -34,30 +68,6 @@
 .featured-collection .nft-card .nft-card__title,
 .featured-collection .nft-card .nft-card__description {
   color: #040707;
-}
-
-/* header inside home page (if you wanna target all of the headers, just remove the .home class */
-.home .header .header__desktop-link,
-.home .header .header__mobile-link,
-.home .header .header__icon-wrapper svg,
-.home .header .user-profile__user-icon svg {
-  color: yellow;
-}
-
-.home .header,
-.home .header .header__icon-wrapper,
-.home .header .user-profile__user-icon {
-  border-color: yellow;
-}
-
-.home .header .search-box__icon,
-.home .header .search-box__input,
-.home .header .search-box__input::placeholder {
-  color: yellow;
-}
-
-.home .header .search-box {
-  border-color: yellow;
 }
 
 /* marketplace page (/marketplace) */
