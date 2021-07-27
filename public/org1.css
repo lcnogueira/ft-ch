@@ -37,26 +37,26 @@
 }
 
 /* header inside home page (if you wanna target all of the headers, just remove the .home class */
-.home .header__desktop-link,
-.home .header__mobile-link,
-.home .header__icon-wrapper svg,
-.home .user-profile__user-icon svg {
+.home .header .header__desktop-link,
+.home .header .header__mobile-link,
+.home .header .header__icon-wrapper svg,
+.home .header .user-profile__user-icon svg {
   color: yellow;
 }
 
 .home .header,
-.home .header__icon-wrapper,
-.home .user-profile__user-icon {
+.home .header .header__icon-wrapper,
+.home .header .user-profile__user-icon {
   border-color: yellow;
 }
 
-.home .search-box__icon,
-.home .search-box__input,
-.home .search-box__input::placeholder {
+.home .header .search-box__icon,
+.home .header .search-box__input,
+.home .header .search-box__input::placeholder {
   color: yellow;
 }
 
-.home .search-box {
+.home .header .search-box {
   border-color: yellow;
 }
 
