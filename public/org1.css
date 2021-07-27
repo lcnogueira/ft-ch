@@ -3,6 +3,11 @@
   background-color: #fafafa;
 }
 
+.home__hero .button{
+  background-color: #F231A5;
+  border: 1px solid white;
+}
+
 .featured-collection {
   background-color: #fafafa;
 }
