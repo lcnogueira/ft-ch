@@ -29,3 +29,34 @@
 .featured-collection .nft-card .nft-card__description {
   color: #040707;
 }
+
+
+/* marketplace page (/marketplace) */
+.marketplace{
+  background-color: #E41C38;
+}
+
+.marketplace .marketplace__content{
+  border-bottom: none;
+}
+
+.marketplace .marketplace__title,
+.marketplace .marketplace__selected-filters,
+.marketplace .filter-by{
+  color: #fafafa;
+}
+
+.marketplace .grid-section {
+  background-color: #fafafa;
+}
+
+.marketplace .nft-card {
+  background-color: #fff;
+}
+
+.marketplace .nft-card .nft-card__title,
+.marketplace .nft-card .nft-card__description,
+.marketplace .nft-card .nft-card__price-title,
+.marketplace .nft-card .nft-card__price-value{
+  color: #040707;
+}
