@@ -99,3 +99,22 @@
 .marketplace .nft-card .nft-card__price-value{
   color: #040707;
 }
+
+/* collection details page */
+.collection .collection__top-wrapper {
+  background-color: #040707;
+}
+
+.collection .collection__title,
+.collection .collection__description,
+.collection .filter-by {
+  color: #fafafa;
+}
+
+.collection .collection__filter-options {
+  border-color: #fafafa;
+}
+
+.collection .grid-section {
+  background-color: #040707;
+}
