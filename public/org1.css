@@ -42,6 +42,10 @@
   border-radius: 30px;
 }
 
+.home__hero.bottom-progressbar{
+  background-color: blue;
+}
+
 /* featured collection section inside home page */
 .featured-collection {
   background-color: #fafafa;
