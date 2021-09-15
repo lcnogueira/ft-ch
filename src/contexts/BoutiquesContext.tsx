@@ -1,4 +1,7 @@
+import axios from 'axios'
 import { useGeolocation } from 'hooks/useGeolocation'
+import { api } from 'lib/api'
+import { BoutiquesResponse } from 'pages/api/boutiques'
 import { useCallback } from 'react'
 import { createContext, useEffect, useState } from 'react'
 
@@ -26,20 +29,14 @@ export function BoutiquesProvider({ children }: BoutiquesProviderProps) {
     async (latitude: number, longitude: number) => {
       try {
         setLoading(true)
-        const response = await fetch(
-          `/api/boutiques?latitude=${latitude}&longitude=${longitude}`
+        const { data } = await api.get<BoutiquesResponse>(
+          `boutiques?latitude=${latitude}&longitude=${longitude}`
         )
-
-        if (response.status !== 200) {
-          const { message } = await response.json()
-          throw new Error(message)
-        }
-
-        const boutiques = await response.json()
-        setBoutiques(boutiques)
+        setBoutiques(data.boutiques)
       } catch (error) {
-        const { message } = error
-        setError(message)
+        if (axios.isAxiosError(error)) {
+          setError(error?.response?.data?.message)
+        }
       } finally {
         setLoading(false)
       }
