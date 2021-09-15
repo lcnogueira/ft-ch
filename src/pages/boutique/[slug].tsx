@@ -1,6 +1,7 @@
 import { GetStaticProps } from 'next'
 import BoutiquesTemplate, { BoutiquesTemplateProps } from 'templates/Boutiques'
 import { API_ENDPOINT } from 'config'
+import axios from 'axios'
 
 const HOUR_IN_SECONDS = 60 * 60
 const NUMBER_OF_PAGES = 20
@@ -11,13 +12,7 @@ export default function Boutique({ boutique }: BoutiquesTemplateProps) {
 
 export async function getStaticPaths() {
   try {
-    const boutiquesResponse = await fetch(API_ENDPOINT)
-
-    if (boutiquesResponse.status !== 200) {
-      throw new Error()
-    }
-
-    const boutiques: Boutique[] = await boutiquesResponse.json()
+    const { data: boutiques } = await axios.get<Boutique[]>(API_ENDPOINT)
 
     const paths = boutiques.slice(0, NUMBER_OF_PAGES).map(({ slug }) => ({
       params: { slug }
@@ -32,13 +27,7 @@ export async function getStaticPaths() {
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   try {
-    const boutiquesResponse = await fetch(API_ENDPOINT)
-
-    if (boutiquesResponse.status !== 200) {
-      throw new Error()
-    }
-
-    const boutiques: Boutique[] = await boutiquesResponse.json()
+    const { data: boutiques } = await axios.get<Boutique[]>(API_ENDPOINT)
 
     const boutique = boutiques.find(
       (boutique) => boutique.slug === params?.slug
