@@ -1,16 +1,21 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 import { getDistanceInKilometers } from 'utils/harvesine'
 import { API_ENDPOINT } from 'config'
+import axios from 'axios'
+
+const BOUTIQUES_NUMBER = 5
 
 type ErrorMessage = {
   message: string
 }
 
-const BOUTIQUES_NUMBER = 5
+export type BoutiquesResponse = {
+  boutiques: Boutique[]
+}
 
 const handler = async (
   request: NextApiRequest,
-  response: NextApiResponse<Boutique[] | ErrorMessage>
+  response: NextApiResponse<BoutiquesResponse | ErrorMessage>
 ) => {
   const { method, query } = request
   if (method !== 'GET') {
@@ -27,15 +32,7 @@ const handler = async (
   }
 
   try {
-    const boutiquesResponse = await fetch(API_ENDPOINT)
-
-    const { status } = boutiquesResponse
-    if (status !== 200) {
-      const { message } = await boutiquesResponse.json()
-      return response.status(status).json({ message })
-    }
-
-    const boutiques: Boutique[] = await boutiquesResponse.json()
+    const { data: boutiques } = await axios.get<Boutique[]>(API_ENDPOINT)
 
     // Ideally we would calculate the distance and sort the items on the trouva service that provides the boutiques
     const boutiquesWithDistance = boutiques.map((boutique) => ({
@@ -55,12 +52,14 @@ const handler = async (
       )
       .slice(0, BOUTIQUES_NUMBER)
 
-    return response.status(200).json(closestBoutiques)
+    return response.status(200).json({ boutiques: closestBoutiques })
   } catch (error) {
-    console.log('got on catch')
-    return response
-      .status(500)
-      .json({ message: 'Could not retrieve boutiques' })
+    let message = 'Could not retrieve boutiques'
+    if (axios.isAxiosError(error)) {
+      message = error?.response?.data?.message
+    }
+
+    return response.status(500).json({ message })
   }
 }
 
