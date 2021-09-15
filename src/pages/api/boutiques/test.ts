@@ -11,7 +11,6 @@ import {
 
 jest.mock('axios')
 const mockedAxios = axios as jest.Mocked<typeof axios>
-// import fetchMock from 'jest-fetch-mock'
 
 describe('/api/boutiques', () => {
   it('should return an error message if latitude or longitude is not provided', async () => {
