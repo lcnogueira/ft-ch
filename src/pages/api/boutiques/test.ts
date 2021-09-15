@@ -26,7 +26,7 @@ describe('/api/boutiques', () => {
     })
   })
 
-  it('should return an error message in case we have an internal server error', async () => {
+  it('should return a default error message in case we have a general error', async () => {
     mockedAxios.get.mockImplementation(() => Promise.reject())
 
     const { req, res } = createMocks({
@@ -39,6 +39,27 @@ describe('/api/boutiques', () => {
     expect(res.statusCode).toBe(500)
     expect(res._getJSONData()).toMatchObject({
       message: 'Could not retrieve boutiques'
+    })
+  })
+
+  it('should return a custom error message in case we have an axios error', async () => {
+    mockedAxios.isAxiosError.mockReturnValueOnce(true)
+    mockedAxios.get.mockImplementation(() =>
+      Promise.reject({
+        response: { data: { message: 'Custom error' } }
+      })
+    )
+
+    const { req, res } = createMocks({
+      method: 'GET',
+      query: { latitude, longitude }
+    })
+    await handler(req, res)
+
+    expect(axios.get).toHaveBeenCalledWith(API_ENDPOINT)
+    expect(res.statusCode).toBe(500)
+    expect(res._getJSONData()).toMatchObject({
+      message: 'Custom error'
     })
   })
 
